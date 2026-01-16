@@ -1,0 +1,21 @@
+<div class="task-details-wrapper">
+  <div class="task-details">
+    @if (task !== undefined) {
+      <div class="task-header">
+        <h2>{{ task.title }}</h2>
+        <mat-icon aria-label="Edit icon">edit</mat-icon>
+      </div>
+      <p>
+        <span class="info-type">Description:</span>
+        <span class="info-description">{{ task.description }}</span>
+      </p>
+      <p>
+        <span class="info-type">Status:</span>
+        <span class="info-status">{{ task.status }}</span>
+      </p>
+    } @else {
+      <app-not-found></app-not-found>
+    }
+  </div>
+</div>
+

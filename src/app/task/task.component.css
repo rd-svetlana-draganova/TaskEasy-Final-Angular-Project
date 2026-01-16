@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
+
+.task-header h2 {
+  font-family: "Gravitas One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.task-header mat-icon {
+  cursor: pointer;
+  padding: 0.8em;
+}
+
+.task-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-type {
+  font-family: "Gravitas One", serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 0.9em;
+}
+
+.task-details p {
+  display: flex;
+  gap: 0.5em;
+}
+
+.info-status {
+  padding: 0.2em;
+  background-color: lightgreen;
+}
+
+.task-details-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.task-details {
+  border: 1px solid green;
+  border-radius: 1em;
+  box-shadow: 0 0 1em green;
+  padding: 1em;
+}
