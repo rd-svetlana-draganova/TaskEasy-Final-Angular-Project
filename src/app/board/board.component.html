@@ -1,0 +1,34 @@
+<h1><p>d</p> The d company</h1>
+
+<div class="board">
+  <div class="card">
+    <h2>To Do</h2>
+    <div class="tasksContainer">
+      @for (task of toDo; track task.id) {
+        <div class="task" (click)="openTask(task.id)">{{ task.title }}</div>
+      } @empty {
+        <div class="task">No tasks</div>
+      }
+    </div>
+  </div>
+  <div class="card">
+    <h2>In progress</h2>
+    <div class="tasksContainer">
+      @for (task of inProgress; track task.id) {
+      <div class="task" (click)="openTask(task.id)">{{ task.title }}</div>
+    } @empty {
+      <div class="task">No tasks</div>
+    }
+    </div>
+  </div>
+  <div class="card">
+    <h2>Done</h2>
+    <div class="tasksContainer">
+      @for (task of done; track task.id) {
+        <div class="task" (click)="openTask(task.id)">{{ task.title }}</div>
+      } @empty {
+        <div class="task">No tasks</div>
+      }
+    </div>
+  </div>
+</div>
