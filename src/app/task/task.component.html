@@ -1,18 +1,38 @@
 <div class="task-details-wrapper">
   <div class="task-details">
     @if (task !== undefined) {
-      <div class="task-header">
-        <h2>{{ task.title }}</h2>
-        <mat-icon aria-label="Edit icon">edit</mat-icon>
-      </div>
-      <p>
-        <span class="info-type">Description:</span>
-        <span class="info-description">{{ task.description }}</span>
-      </p>
-      <p>
-        <span class="info-type">Status:</span>
-        <span class="info-status">{{ task.status }}</span>
-      </p>
+      @if (editing === false) {
+        <div class="task-header">
+          <h2>{{ task.title }}</h2>
+          <mat-icon (click)="editTask()" aria-label="Edit icon">edit</mat-icon>
+        </div>
+        <p>
+          <span class="info-type">Description:</span>
+          <span class="info-description">{{ task.description }}</span>
+        </p>
+        <p>
+          <span class="info-type">Status:</span>
+          <span class="info-status">{{ task.status }}</span>
+        </p>
+      } @else {
+        <div class="task-header">
+          <input [(ngModel)]="editTitle" />
+          <mat-icon (click)="saveTask()" aria-label="Save icon">Save</mat-icon>
+          <mat-icon (click)="cancelEdit()" aria-label="Cancel icon">Cancel</mat-icon>
+        </div>
+        <p>
+          <span class="info-type">Description:</span>
+          <input [(ngModel)]="editDescription" />
+        </p>
+        <p>
+          <span class="info-type">Status:</span>
+          <select [(ngModel)]="editStatus">
+            <option value="to-do">to-do</option>
+            <option value="in-progress">in-progress</option>
+            <option value="done">done</option>
+          </select>
+        </p>
+      }
     } @else {
       <app-not-found></app-not-found>
     }
