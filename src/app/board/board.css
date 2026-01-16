@@ -1,0 +1,30 @@
+h1 p {
+  color: white;
+  background-color: blue;
+  padding: 0.5em;
+  display: inline;
+}
+
+.board {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  display: block;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.tasksContainer {
+  border: 0.1em solid black;
+  width: 20em;
+  height: 40em;
+  padding: 1em;
+}
+
+.task {
+  border: 0.1em solid black;
+  padding: 0.5em;
+}

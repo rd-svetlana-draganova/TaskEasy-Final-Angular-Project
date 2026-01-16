@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "title": "Create login page",
+    "description": "Simple authentication",
+    "status": "in-progress"
+  },
+  {
+    "id": 2,
+    "title": "Add routing",
+    "description": "Add navigation between pages",
+    "status": "to-do"
+  },
+  {
+    "id": 3,
+    "title": "Finalize the UI",
+    "description": "Make the layout look nice",
+    "status": "done"
+  }
+]
+
