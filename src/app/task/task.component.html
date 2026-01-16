@@ -4,7 +4,10 @@
       @if (editing === false) {
         <div class="task-header">
           <h2>{{ task.title }}</h2>
-          <mat-icon (click)="editTask()" aria-label="Edit icon">edit</mat-icon>
+          <div class="edit-buttons">
+            <a class='delete' (click)="deleteTask()">Delete</a>
+            <mat-icon (click)="editTask()" aria-label="Edit icon">edit</mat-icon>
+          </div>
         </div>
         <p>
           <span class="info-type">Description:</span>
@@ -18,8 +21,8 @@
         <div class="task-header">
           <input [(ngModel)]="editTitle" />
           <div class="change-buttons">
-            <button class='save' (click)="saveTask()">Save</button>
-            <button class='cancel' (click)="cancelEdit()">Cancel</button>
+            <a class='save' (click)="saveTask()">Save</a>
+            <a class='cancel' (click)="cancelEdit()">Cancel</a>
           </div>
         </div>
         <p>

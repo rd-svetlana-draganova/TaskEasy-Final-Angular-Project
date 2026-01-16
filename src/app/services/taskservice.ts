@@ -18,7 +18,6 @@ export class TaskService {
       if (Array.isArray(tasks) && tasks.length > 0) {
         return of(tasks);
       }
-      // If tasks is an empty array, fall through to load from JSON
     }
     return this.http.get<Task[]>('assets/tasks.json').pipe(
       tap(tasks => localStorage.setItem(this.storageKey, JSON.stringify(tasks)))
@@ -63,6 +62,15 @@ export class TaskService {
     return this.loadTasks().pipe(
       map((tasks: Task[]) => tasks.filter((task: Task) => task.status === status))
     );
+  }
+
+  //Getting max ID
+  getNextAvailableId(): number {
+    const tasks = this.getTasksFromStorage();
+    // Find max id (as number)
+    const maxId = tasks.length > 0 ? Math.max(...tasks.map((task: Task) => Number(task.id))) : 0;
+
+    return maxId + 1;
   }
 
   // Helper: get tasks from local storage (sync)

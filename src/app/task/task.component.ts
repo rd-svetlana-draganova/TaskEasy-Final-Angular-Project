@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from '../services/taskservice';
 import { Task } from '../models/task.model';
 import { CommonModule } from '@angular/common';
@@ -26,6 +26,7 @@ export class TaskComponent implements OnInit {
     private route: ActivatedRoute,
     private taskService: TaskService,
     private cd: ChangeDetectorRef,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -46,6 +47,13 @@ export class TaskComponent implements OnInit {
       this.editTitle = this.task.title;
       this.editDescription = this.task.description;
       this.editStatus = this.task.status;
+    }
+  }
+
+  deleteTask(){
+    if (this.task && this.taskId) {
+      this.taskService.deleteTask(this.taskId);
+      this.router.navigate(['/home']);
     }
   }
 

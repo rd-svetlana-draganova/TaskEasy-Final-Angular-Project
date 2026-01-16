@@ -28,3 +28,21 @@ h1 p {
   border: 0.1em solid black;
   padding: 0.5em;
 }
+
+.board-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.board-header a {
+  padding: 0.2em;
+  background-color: lightgreen;
+  width: 7em;
+  height: 2em;
+  border-radius: 1em;
+  box-shadow: 0 0 1em green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

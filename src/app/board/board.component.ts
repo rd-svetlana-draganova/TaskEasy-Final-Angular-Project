@@ -38,4 +38,14 @@ export class BoardComponent implements OnInit {
   trackById(index: number, task: Task) {
     return task.id;
   }
+
+  createTask() {
+    // Navigate to a task creation page or open a modal (adjust as needed)
+    this.router.navigate(['/task', 'new']);
+  }
+
+  // Public method for template navigation to new-task
+  navigateToNewTask() {
+    this.router.navigate(['/new-task']);
+  }
 }
