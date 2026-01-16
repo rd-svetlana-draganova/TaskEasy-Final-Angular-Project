@@ -26,6 +26,8 @@
 .task-details p {
   display: flex;
   gap: 0.5em;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .info-status {
@@ -45,5 +47,48 @@
   border: 1px solid green;
   border-radius: 1em;
   box-shadow: 0 0 1em green;
-  padding: 1em;
+  padding: 2em;
+  width: 30vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.save {
+  font-size: 0.8em;
+  padding: 0.5em;
+  width: 5em;
+  background-color: lightgreen;
+  border-radius: 1em;
+}
+
+.cancel {
+  font-size: 0.8em;
+  padding: 0.5em;
+  width: 5em;
+  background-color: lightcoral;
+  border-radius: 1em;
+}
+
+.change-buttons {
+  display: flex;
+  gap: 0.5em;
+}
+
+.description-edit {
+  width: 50vw;
+  height: 10vh;
+}
+
+input {
+  border-radius: 0.5em;
+  padding: 0.5em;
+  border: 1px solid green;
+}
+
+.options{
+  border-radius: 0.5em;
+  padding: 0.5em;
+  border: 1px solid green;
 }

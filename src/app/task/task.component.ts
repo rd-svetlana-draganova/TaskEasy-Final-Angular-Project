@@ -54,7 +54,9 @@ export class TaskComponent implements OnInit {
       this.task.title = this.editTitle;
       this.task.description = this.editDescription;
       this.task.status = this.editStatus;
+      this.taskService.editTask(this.task);
       this.editing = false;
+      this.cd.detectChanges();
     }
   }
 

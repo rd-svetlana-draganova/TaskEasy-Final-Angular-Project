@@ -17,16 +17,18 @@
       } @else {
         <div class="task-header">
           <input [(ngModel)]="editTitle" />
-          <mat-icon (click)="saveTask()" aria-label="Save icon">Save</mat-icon>
-          <mat-icon (click)="cancelEdit()" aria-label="Cancel icon">Cancel</mat-icon>
+          <div class="change-buttons">
+            <button class='save' (click)="saveTask()">Save</button>
+            <button class='cancel' (click)="cancelEdit()">Cancel</button>
+          </div>
         </div>
         <p>
           <span class="info-type">Description:</span>
-          <input [(ngModel)]="editDescription" />
+          <input class='description-edit' [(ngModel)]="editDescription" />
         </p>
         <p>
           <span class="info-type">Status:</span>
-          <select [(ngModel)]="editStatus">
+          <select class="options" [(ngModel)]="editStatus">
             <option value="to-do">to-do</option>
             <option value="in-progress">in-progress</option>
             <option value="done">done</option>

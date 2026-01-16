@@ -4,7 +4,7 @@
   <div class="card">
     <h2>To Do</h2>
     <div class="tasksContainer">
-      @for (task of toDo; track task.id) {
+      @for (task of toDo | async; track task.id) {
         <div class="task" (click)="openTask(task.id)">{{ task.title }}</div>
       } @empty {
         <div class="task">No tasks</div>
@@ -14,7 +14,7 @@
   <div class="card">
     <h2>In progress</h2>
     <div class="tasksContainer">
-      @for (task of inProgress; track task.id) {
+      @for (task of inProgress | async; track task.id) {
       <div class="task" (click)="openTask(task.id)">{{ task.title }}</div>
     } @empty {
       <div class="task">No tasks</div>
@@ -24,7 +24,7 @@
   <div class="card">
     <h2>Done</h2>
     <div class="tasksContainer">
-      @for (task of done; track task.id) {
+      @for (task of done | async; track task.id) {
         <div class="task" (click)="openTask(task.id)">{{ task.title }}</div>
       } @empty {
         <div class="task">No tasks</div>
