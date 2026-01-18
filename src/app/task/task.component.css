@@ -15,6 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1em;
 }
 
 .edit-buttons{
@@ -104,8 +105,10 @@
 }
 
 .description-edit {
-  width: 50vw;
+  width: 70vw;
   height: 10vh;
+  max-width: 30vw;
+  overflow-wrap: break-word;
 }
 
 input {
@@ -118,4 +121,42 @@ input {
   border-radius: 0.5em;
   padding: 0.5em;
   border: 1px solid green;
+}
+
+.edit-title{
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+@media (max-width: 1250px) {
+  .edit-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 1200px) {
+  .task-header h2 {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 1080px) {
+
+  .task-header {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+  }
+
+  .task-details p {
+    flex-direction: column;
+  }
+
+  .description-edit {
+    max-width: 30vw;
+    overflow-wrap: break-word;
+  }
 }
