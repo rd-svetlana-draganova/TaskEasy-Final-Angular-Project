@@ -3,13 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Task } from '../models/task.model';
 import { TaskService } from '../services/taskservice';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Authservice } from '../services/authservice';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
@@ -21,7 +22,8 @@ export class BoardComponent implements OnInit {
   constructor(
     private readonly taskService: TaskService,
     private cd: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private authService: Authservice
   ) {}
 
   ngOnInit() {
@@ -47,5 +49,14 @@ export class BoardComponent implements OnInit {
   // Public method for template navigation to new-task
   navigateToNewTask() {
     this.router.navigate(['/new-task']);
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
