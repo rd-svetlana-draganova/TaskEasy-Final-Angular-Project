@@ -19,7 +19,10 @@
         </p>
       } @else {
         <div class="task-header">
-          <input [(ngModel)]="editTitle" />
+          <div class="edit-title">
+            <span class="info-type">Title:</span>
+            <input [(ngModel)]="editTitle" />
+          </div>
           <div class="change-buttons">
             <a class='save' (click)="saveTask()">Save</a>
             <a class='cancel' (click)="cancelEdit()">Cancel</a>
