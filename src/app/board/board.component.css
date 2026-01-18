@@ -81,3 +81,8 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+
+.action-buttons{
+  display: flex;
+  gap: 1em;
+}

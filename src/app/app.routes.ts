@@ -3,6 +3,8 @@ import { TaskComponent } from './task/task.component';
 import { BoardComponent } from './board/board.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './services/auth.guard';
 
 export const routes: Routes = [
   {
@@ -11,20 +13,28 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: 'home',
-    component: BoardComponent
+    component: BoardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'task/:id',
-    component: TaskComponent
+    component: TaskComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'task',
-    component: TaskComponent
+    component: TaskComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'new-task',
-    component: NewTaskComponent
+    component: NewTaskComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
