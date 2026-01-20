@@ -3,18 +3,24 @@
     "id": "1",
     "title": "Create login page",
     "description": "Simple authentication",
+    "estimation": "1",
+    "assignedTo": "Dimitar P.",
     "status": "in-progress"
   },
   {
     "id": "2",
     "title": "Add routing",
     "description": "Add navigation between pages",
+    "estimation": "2",
+    "assignedTo": "Boryana G.",
     "status": "to-do"
   },
   {
     "id": "3",
     "title": "Finalize the UI",
     "description": "Make the layout look nice",
+    "estimation": "3",
+    "assignedTo": "Atanas D.",
     "status": "done"
   }
 ]

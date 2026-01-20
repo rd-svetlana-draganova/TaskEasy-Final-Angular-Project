@@ -20,6 +20,8 @@ export class TaskComponent implements OnInit {
   editing = false;
   editTitle = '';
   editDescription = '';
+  editAssignedTo: 'user1' | 'user2' | 'user3' = 'user1';
+  editEstimation = '';
   editStatus: 'to-do' | 'in-progress' | 'done' = 'to-do';
 
   constructor(
@@ -46,6 +48,8 @@ export class TaskComponent implements OnInit {
       this.editing = true;
       this.editTitle = this.task.title;
       this.editDescription = this.task.description;
+      this.editAssignedTo = this.task.assignedTo;
+      this.editEstimation = this.task.estimation;
       this.editStatus = this.task.status;
     }
   }

@@ -14,8 +14,20 @@
           <span class="info-description">{{ task.description }}</span>
         </p>
         <p>
+          <span class="info-type">Assigned To:</span>
+          <select class="options" [(ngModel)]="editAssignedTo">
+            <option value="user1">Dimitar P.</option>
+            <option value="user2">Boryana G.</option>
+            <option value="user3">Atanas D.</option>
+          </select>
+        </p>
+        <p>
           <span class="info-type">Status:</span>
           <span class="info-status">{{ task.status }}</span>
+        </p>
+        <p>
+          <span class="info-type">Estimation:</span>
+          <input class='estimation' [(ngModel)]="editEstimation"/>
         </p>
       } @else {
         <div class="task-header">
@@ -33,6 +45,14 @@
           <input class='description-edit' [(ngModel)]="editDescription" />
         </p>
         <p>
+          <span class="info-type">Assigned To:</span>
+          <select class="options" [(ngModel)]="editAssignedTo">
+            <option value="user1">Dimitar P.</option>
+            <option value="user2">Boryana G.</option>
+            <option value="user3">Atanas D.</option>
+          </select>
+        </p>
+        <p>
           <span class="info-type">Status:</span>
           <select class="options" [(ngModel)]="editStatus">
             <option value="to-do">to-do</option>
@@ -40,10 +60,13 @@
             <option value="done">done</option>
           </select>
         </p>
+        <p>
+          <span class="info-type">Estimation:</span>
+          <input class='estimation' [(ngModel)]="editEstimation"/>
+        </p>
       }
     } @else {
       <app-not-found></app-not-found>
     }
   </div>
 </div>
-

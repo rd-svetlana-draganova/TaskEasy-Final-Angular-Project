@@ -14,7 +14,11 @@
     <h2>To Do</h2>
     <div class="tasksContainer">
       @for (task of toDo | async; track task.id) {
-        <div class="task" (click)="openTask(task.id)">{{ task.title }}</div>
+        <div class="task" (click)="openTask(task.id)">
+          <p>{{ task.title }}</p>
+          <p>{{ task.assignedTo || 'Unassigned' }}</p>
+          <p>{{ task.estimation || '' }}</p>
+        </div>
       } @empty {
         <div class="task">No tasks</div>
       }
@@ -24,7 +28,11 @@
     <h2>In progress</h2>
     <div class="tasksContainer">
       @for (task of inProgress | async; track task.id) {
-        <div class="task" (click)="openTask(task.id)">{{ task.title }}</div>
+        <div class="task" (click)="openTask(task.id)">
+          <p>{{ task.title }}</p>
+          <p>{{ task.assignedTo || 'Unassigned' }}</p>
+          <p>{{ task.estimation || '' }}</p>
+        </div>
       } @empty {
         <div class="task">No tasks</div>
       }
@@ -34,7 +42,11 @@
     <h2>Done</h2>
     <div class="tasksContainer">
       @for (task of done | async; track task.id) {
-        <div class="task" (click)="openTask(task.id)">{{ task.title }}</div>
+        <div class="task" (click)="openTask(task.id)">
+          <p>{{ task.title }}</p>
+          <p>{{ task.assignedTo || 'Unassigned' }}</p>
+          <p>{{ task.estimation || '' }}</p>
+        </div>
       } @empty {
         <div class="task">No tasks</div>
       }
