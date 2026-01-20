@@ -1,3 +1,22 @@
 .app-container {
+  margin: -0.5em;
   padding: 2em;
+  background-image: url("https://images.unsplash.com/photo-1619963098787-23252986767e?auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&q=80&w=2670");
+  max-width: 100vw;
+  max-height: 100vh;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: -2;
+}
+
+.app-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.65);
+  pointer-events: none;
+  z-index: -1;
 }
