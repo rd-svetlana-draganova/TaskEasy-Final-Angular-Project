@@ -1,5 +1,16 @@
 <div class="board-header">
   <h1><p>d</p> The d company</h1>
+  <div class="filter-bar">
+    <div class="filter-title">Filters:</div>
+    <select [(ngModel)]="assignedToFilter" (change)="applyAssignedToFilter()">
+      <option value="" disabled selected hidden>Select person</option>
+      <option value="">All</option>
+      <option value="Dimitar P.">Dimitar P.</option>
+      <option value="Boryana G.">Boryana G.</option>
+      <option value="Atanas D.">Atanas D.</option>
+    </select>
+    <input [(ngModel)]="estimationFilter" (input)="applyEstimationFilter()" min="0" placeholder="Estimation"/>
+  </div>
   <div class="action-buttons">
     <a (click)="navigateToNewTask()">Create task +</a>
     @if (isLoggedIn()) {
@@ -12,8 +23,8 @@
 <div class="board" cdkDropListGroup>
   <div class="card">
     <h2>To Do</h2>
-    <div class="tasksContainer" cdkDropList [cdkDropListData]="toDoList" (cdkDropListDropped)="drop($event, 'to-do')">
-      @for (task of toDoList; track task.id) {
+    <div class="tasksContainer" cdkDropList [cdkDropListData]="filteredToDoList" (cdkDropListDropped)="drop($event, 'to-do')">
+      @for (task of filteredToDoList; track task.id) {
         <div class="task" (click)="openTask(task.id)" cdkDrag>
           <p>{{ task.title }}</p>
           <p>{{ task.assignedTo || 'Unassigned' }}</p>
@@ -26,8 +37,8 @@
   </div>
   <div class="card">
     <h2>In progress</h2>
-    <div class="tasksContainer" cdkDropList [cdkDropListData]="inProgressList" (cdkDropListDropped)="drop($event, 'in-progress')">
-      @for (task of inProgressList; track task.id) {
+    <div class="tasksContainer" cdkDropList [cdkDropListData]="filteredInProgressList" (cdkDropListDropped)="drop($event, 'in-progress')">
+      @for (task of filteredInProgressList; track task.id) {
         <div class="task" (click)="openTask(task.id)" cdkDrag>
           <p>{{ task.title }}</p>
           <p>{{ task.assignedTo || 'Unassigned' }}</p>
@@ -40,8 +51,8 @@
   </div>
   <div class="card">
     <h2>Done</h2>
-    <div class="tasksContainer" cdkDropList [cdkDropListData]="doneList" (cdkDropListDropped)="drop($event, 'done')">
-      @for (task of doneList; track task.id) {
+    <div class="tasksContainer" cdkDropList [cdkDropListData]="filteredDoneList" (cdkDropListDropped)="drop($event, 'done')">
+      @for (task of filteredDoneList; track task.id) {
         <div class="task" (click)="openTask(task.id)" cdkDrag>
           <p>{{ task.title }}</p>
           <p>{{ task.assignedTo || 'Unassigned' }}</p>
