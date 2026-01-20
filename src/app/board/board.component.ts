@@ -6,18 +6,19 @@ import { TaskService } from '../services/taskservice';
 import { Router, RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Authservice } from '../services/authservice';
+import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, DragDropModule],
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-  toDo!: Observable<Task[]>;
-  inProgress!: Observable<Task[]>;
-  done!: Observable<Task[]>;
+  toDoList: Task[] = [];
+  inProgressList: Task[] = [];
+  doneList: Task[] = [];
 
   constructor(
     private readonly taskService: TaskService,
@@ -27,10 +28,18 @@ export class BoardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.toDo = this.taskService.getTaskByStatus('to-do');
-    this.inProgress = this.taskService.getTaskByStatus('in-progress');
-    this.done = this.taskService.getTaskByStatus('done');
-    this.cd.detectChanges();
+    this.taskService.getTaskByStatus('to-do').subscribe(tasks => {
+      this.toDoList = tasks;
+      this.cd.detectChanges();
+    });
+    this.taskService.getTaskByStatus('in-progress').subscribe(tasks => {
+      this.inProgressList = tasks;
+      this.cd.detectChanges();
+    });
+    this.taskService.getTaskByStatus('done').subscribe(tasks => {
+      this.doneList = tasks;
+      this.cd.detectChanges();
+    });
   }
 
   openTask(taskId: string) {
@@ -42,11 +51,9 @@ export class BoardComponent implements OnInit {
   }
 
   createTask() {
-    // Navigate to a task creation page or open a modal (adjust as needed)
     this.router.navigate(['/task', 'new']);
   }
 
-  // Public method for template navigation to new-task
   navigateToNewTask() {
     this.router.navigate(['/new-task']);
   }
@@ -58,5 +65,22 @@ export class BoardComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  drop(event: CdkDragDrop<Task[]>, status: 'to-do' | 'in-progress' | 'done') {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      const task = event.previousContainer.data[event.previousIndex];
+      task.status = status;
+      this.taskService.editTask(task);
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+    this.cd.detectChanges();
   }
 }

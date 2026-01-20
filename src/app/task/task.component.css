@@ -73,6 +73,7 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 1em coral;
+  cursor: pointer;
 }
 
 .save {
@@ -85,6 +86,7 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 1em green;
+  cursor: pointer;
 }
 
 .cancel {
@@ -97,6 +99,7 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 1em coral;
+  cursor: pointer;
 }
 
 .change-buttons {
