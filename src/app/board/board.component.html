@@ -9,12 +9,12 @@
     }
   </div>
 </div>
-<div class="board">
+<div class="board" cdkDropListGroup>
   <div class="card">
     <h2>To Do</h2>
-    <div class="tasksContainer">
-      @for (task of toDo | async; track task.id) {
-        <div class="task" (click)="openTask(task.id)">
+    <div class="tasksContainer" cdkDropList [cdkDropListData]="toDoList" (cdkDropListDropped)="drop($event, 'to-do')">
+      @for (task of toDoList; track task.id) {
+        <div class="task" (click)="openTask(task.id)" cdkDrag>
           <p>{{ task.title }}</p>
           <p>{{ task.assignedTo || 'Unassigned' }}</p>
           <p>{{ task.estimation || '' }}</p>
@@ -26,9 +26,9 @@
   </div>
   <div class="card">
     <h2>In progress</h2>
-    <div class="tasksContainer">
-      @for (task of inProgress | async; track task.id) {
-        <div class="task" (click)="openTask(task.id)">
+    <div class="tasksContainer" cdkDropList [cdkDropListData]="inProgressList" (cdkDropListDropped)="drop($event, 'in-progress')">
+      @for (task of inProgressList; track task.id) {
+        <div class="task" (click)="openTask(task.id)" cdkDrag>
           <p>{{ task.title }}</p>
           <p>{{ task.assignedTo || 'Unassigned' }}</p>
           <p>{{ task.estimation || '' }}</p>
@@ -40,9 +40,9 @@
   </div>
   <div class="card">
     <h2>Done</h2>
-    <div class="tasksContainer">
-      @for (task of done | async; track task.id) {
-        <div class="task" (click)="openTask(task.id)">
+    <div class="tasksContainer" cdkDropList [cdkDropListData]="doneList" (cdkDropListDropped)="drop($event, 'done')">
+      @for (task of doneList; track task.id) {
+        <div class="task" (click)="openTask(task.id)" cdkDrag>
           <p>{{ task.title }}</p>
           <p>{{ task.assignedTo || 'Unassigned' }}</p>
           <p>{{ task.estimation || '' }}</p>
