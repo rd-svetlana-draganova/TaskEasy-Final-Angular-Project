@@ -8,11 +8,26 @@ import { Observable } from 'rxjs';
 import { Authservice } from '../services/authservice';
 import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule, RouterModule, DragDropModule, FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    DragDropModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatInputModule,
+    MatIconModule
+  ],
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
