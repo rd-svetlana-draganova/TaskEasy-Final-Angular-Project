@@ -15,7 +15,7 @@ describe('TaskService', () => {
   });
 
   it('should add and retrieve a task', async () => {
-    const task: Task = { id: '1', title: 'Test', description: 'Desc', status: 'to-do' };
+    const task: Task = { id: '1', title: 'Test', description: 'Desc', status: 'to-do', estimation: '', assignedTo: 'user1' };
     service.addTask(task);
     const tasks = await service.loadTasks().toPromise();
     expect(tasks && tasks.length).toBe(1);
@@ -23,7 +23,7 @@ describe('TaskService', () => {
   });
 
   it('should edit a task', async () => {
-    const task: Task = { id: '1', title: 'Test', description: 'Desc', status: 'to-do' };
+    const task: Task = { id: '1', title: 'Test', description: 'Desc', status: 'to-do', estimation: '', assignedTo: 'user1' };
     service.addTask(task);
     const updated = { ...task, title: 'Updated' };
     service.editTask(updated);
@@ -32,7 +32,7 @@ describe('TaskService', () => {
   });
 
   it('should delete a task', async () => {
-    const task: Task = { id: '1', title: 'Test', description: 'Desc', status: 'to-do' };
+    const task: Task = { id: '1', title: 'Test', description: 'Desc', status: 'to-do', estimation: '', assignedTo: 'user1' };
     service.addTask(task);
     service.deleteTask('1');
     const tasks = await service.loadTasks().toPromise();
@@ -41,7 +41,7 @@ describe('TaskService', () => {
 
   it('should get next available id', () => {
     expect(service.getNextAvailableId()).toBe(1);
-    service.addTask({ id: '1', title: '', description: '', status: 'to-do' });
+    service.addTask({ id: '1', title: '', description: '', status: 'to-do', estimation: '', assignedTo: 'user1' });
     expect(service.getNextAvailableId()).toBe(2);
   });
 });
