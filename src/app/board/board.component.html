@@ -2,14 +2,21 @@
   <h1><p>d</p> The d company</h1>
   <div class="filter-bar">
     <div class="filter-title">Filters:</div>
-    <select [(ngModel)]="assignedToFilter" (change)="applyAssignedToFilter()">
-      <option value="" disabled selected hidden>Select person</option>
-      <option value="">All</option>
-      <option value="Dimitar P.">Dimitar P.</option>
-      <option value="Boryana G.">Boryana G.</option>
-      <option value="Atanas D.">Atanas D.</option>
-    </select>
-    <input [(ngModel)]="estimationFilter" (input)="applyEstimationFilter()" min="0" placeholder="Estimation"/>
+    <mat-form-field appearance="fill">
+      <mat-label>Select person</mat-label>
+      <mat-select [(ngModel)]="assignedToFilter" (selectionChange)="applyAssignedToFilter()" disableRipple>
+        <mat-option value="">All</mat-option>
+        <mat-option value="Dimitar P.">Dimitar P.</mat-option>
+        <mat-option value="Boryana G.">Boryana G.</mat-option>
+        <mat-option value="Atanas D.">Atanas D.</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Estimation</mat-label>
+        <input matInput [(ngModel)]="estimationFilter" (input)="applyEstimationFilter()" min="0">
+      </mat-form-field>
+    </p>
   </div>
   <div class="action-buttons">
     <a (click)="navigateToNewTask()">Create task +</a>

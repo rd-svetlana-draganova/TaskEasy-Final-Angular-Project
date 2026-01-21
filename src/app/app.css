@@ -5,3 +5,41 @@
   min-height: 95vh;
   background: linear-gradient(135deg, #bcdde8 0%, #cee3ed 40%, #ceedd0 70%, #c7ebc9 100%);
 }
+
+/* Style the Angular Material select dropdown panel (MDC) */
+::ng-deep .mat-mdc-select-panel.mdc-menu-surface {
+  background: #fff !important;
+  border-top: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 0 0 0.5em 0.5em;
+}
+
+/* Remove MDC line ripple and before/after pseudo-elements for mat-form-field */
+::ng-deep .mdc-line-ripple,
+::ng-deep .mat-mdc-form-field .mdc-line-ripple,
+::ng-deep .mat-mdc-form-field .mdc-line-ripple::before,
+::ng-deep .mat-mdc-form-field .mdc-line-ripple::after,
+::ng-deep .mat-mdc-form-field .mat-mdc-form-field-flex::before,
+::ng-deep .mat-mdc-form-field .mat-mdc-form-field-flex::after {
+  display: none !important;
+  border: none !important;
+  background: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove MDC Material subscript wrapper, hint wrapper, and hint spacer for mat-form-field */
+::ng-deep .mat-mdc-form-field-subscript-wrapper,
+::ng-deep .mat-mdc-form-field-hint-wrapper,
+::ng-deep .mat-mdc-form-field-hint-spacer,
+::ng-deep .mat-mdc-form-field-bottom-align,
+::ng-deep .mat-mdc-form-field-hint-spacer {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
