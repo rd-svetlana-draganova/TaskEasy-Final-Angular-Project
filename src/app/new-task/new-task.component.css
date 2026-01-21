@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
+
+.info-type {
+  font-family: "Gravitas One", serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 0.9em;
+}
+
+.task-details {
+  border: 1px solid green;
+  border-radius: 1em;
+  box-shadow: 0 0 1em green;
+  padding: 2em;
+  background-color: #f6fff6;
+  min-width: 30vw;
+  max-width: 50vw;
+  min-height: 30vh;
+  max-height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-details-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+}
+
+
+.task-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+
+
+.save {
+  font-size: 0.8em;
+  padding: 0.5em;
+  width: 5em;
+  background-color: lightgreen;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 1em green;
+  cursor: pointer;
+}
+
+.cancel {
+  font-size: 0.8em;
+  padding: 0.5em;
+  width: 5em;
+  background-color: lightcoral;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 1em coral;
+  cursor: pointer;
+}
+
+.change-buttons {
+  display: flex;
+  gap: 0.5em;
+}
+
+.task-header h2 {
+  font-family: "Gravitas One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.task-details p {
+  display: flex;
+  gap: 0.5em;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.description-edit {
+  max-width: 50vw;
+  min-width: 10vw;
+  height:5vh;
+}
+
+input {
+  border-radius: 0.5em;
+  min-width: 10vw;
+  padding: 0.5em;
+  border: 1px solid green;
+}
+
+.options{
+  border-radius: 0.5em;
+  min-width: 10vw;
+  max-width: 15vw;
+  padding: 0.5em;
+  border: 1px solid green;
+}
+
+.estimation {
+  width: 2vw;
+  height: 2vw;
+  min-width: 2vw;
+  min-height: 2vw;
+  max-width: 2vw;
+  max-height: 2vw;
+  border-radius: 0.5em;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .task-header {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 553px) {
+  .task-header h2 {
+    font-size: 1.2em;
+  }
+
+  .task-details p{
+    flex-direction: column;
+  }
+
+  .info-type {
+    font-size: 0.8em;
+  }
+}

@@ -1,0 +1,42 @@
+<div class="task-details-wrapper">
+  <div class="task-details">
+    <div class="task-header">
+      <h2>Create new task</h2>
+      <div class="change-buttons">
+        <a class='save' (click)="saveTask()">Save</a>
+        <a class='cancel' (click)="cancelEdit()">Cancel</a>
+      </div>
+    </div>
+    <p>
+      <span class="info-type">Title:</span>
+      <input [(ngModel)]="editTitle"/>
+    </p>
+    <p>
+      <span class="info-type">Description:</span>
+      <input class='description-edit' [(ngModel)]="editDescription"/>
+    </p>
+    <p>
+      <span class="info-type">Assigned To:</span>
+      <select class="options" [(ngModel)]="editAssignedTo">
+        <option value="user1">Dimitar P.</option>
+        <option value="user2">Boryana G.</option>
+        <option value="user3">Atanas D.</option>
+      </select>
+    </p>
+    <div>
+      <p>
+        <span class="info-type">Status:</span>
+        <select class="options" [(ngModel)]="editStatus">
+          <option value="to-do">to-do</option>
+          <option value="in-progress">in-progress</option>
+          <option value="done">done</option>
+        </select>
+      </p>
+      <p>
+        <span class="info-type">Estimation:</span>
+        <input class='estimation' [(ngModel)]="editEstimation"/>
+      </p>
+    </div>
+  </div>
+</div>
+
